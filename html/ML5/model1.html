@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lstm Generator</title>
+	<script src="https://unpkg.com/ml5@0.1.1/dist/ml5.min.js"></script>
+	<link rel="shortcut icon" type="image/jpg" href="../../public/ML5/images/logo.jpg">
+	<script type="text/javascript" src="../../public/ML5/js/LSTM.js"></script>
+	<script type="text/javascript" src="../../public/ML5/js/PoseNet.js"></script>
+	<script type="text/javascript" src="../../public/ML5/js/StyleTransfer.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../public/ML5/css/main.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.min.js"></script>
+</head>
+<style>
+	button{
+		color: white;
+		background: #A569BD;
+	}
+	canvas{
+		margin-left: 30%;
+		border-radius: 20px;
+	}
+	h1{
+		color:#A569BD;
+	}
+</style>
+<body>
+
+	<nav class="navbar navbar-custom">
+	  <div class="container-fluid">
+	      <a class="navbar-brand" href="ML5.html" style="margin-left: 40%;color: white;">ML5-Presentation-Vishal-Agarwal</a>
+
+	      <div class="dropdown">
+			  <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" style="float: left;margin-top: 8px;margin-left: 400px;">ML5-Examples
+			  <span class="caret"></span></button>
+			  <ul class="dropdown-menu" style="float: left;margin-top: 45px;margin-left: 1250px;background: #BB8FCE;color: white;">
+			    <li><a href="model2.html"><center>Yolo-Video-Classifier</center></a></li>
+			    <li><a href="model3.html"><center>MobileNet-Video-Classifier</center></a></li>
+			    <li><a href="model6.html"><center>MobileNet-Image-Classifier</center></a></li>
+			    <li><a href="model1.html"><center>LSTM-StyleTransfer-PoseNet</center></a></li>
+			    <li><a href="model4.html"><center>Video-Modalling</center></a></li>
+			    <li><a href="model5.html"><center>Feature-Extractor</center></a></li>
+			  </ul>
+	   	   </div>
+	  </div>
+	</nav>
+
+	<center>
+		<h1>LSTM-Generator</h1>
+	</center>
+	<br>
+	<center>
+	<button onclick="bolano();" class="btn">bolano</button>
+	<button onclick="woolf();" class="btn">woolf</button>
+	<button onclick="shakespeare();" class="btn">shakespeare</button>
+	<button onclick="hemingway();" class="btn">hemingway</button>
+	<button onclick="darwin();" class="btn">darwin</button>
+	<button onclick="charlotte_bronte();" class="btn">charlotte_bronte</button>
+	<button onclick="zora_neale_hurston();" class="btn">zora_neale_hurston</button>
+	<button onclick="dubois();" class="btn">dubois</button>
+	</center>
+	<br><br>
+	<center>
+	<input type="text" id="myNumber" style="background: #D2B4DE;border-radius: 5px;border: none;height: 35px;color: white;">
+	<button onclick="myFunction()" class="btn">Try it</button>
+	</center>
+	<br><br>
+	<center>
+	<p id="para" style="font-size: 20px;">First type in then select the model to be used....</p>
+	</center>
+	<br>
+	<center>
+		<h1>Style-Transfer</h1>
+		<br>
+	</center>
+	<center>
+	<img src="../../public/ML5/images/vishal.jpg" style="width: 400px;height: 300px;border-radius: 20px;">
+	<img src="../../public/ML5/images/purple-arrow.svg" style="width: 100px;height: 150px;">
+	<img src="../../public/ML5/images/vishal.jpg" style="width: 400px;height: 300px;border-radius: 20px;" id="img">
+	</center>
+	<br>
+	<center>
+	<button id="la_muse" onclick="la_muse();" class="btn">la_muse</button>
+	<button id="matilde_perez" onclick="matilde_perez();" class="btn">matilde_perez</button>
+	<button id="matta" onclick="matta();" class="btn">matta</button>
+	<button id="rain_princess" onclick="rain_princess();" class="btn">rain_princess</button>
+	<button id="scream" onclick="scream();" class="btn">scream</button>
+	<button id="udnie" onclick="udnie();" class="btn">udnie</button>
+	<button id="wave" onclick="wave();" class="btn">wave</button>
+	<button id="wreck" onclick="wreck();" class="btn">wreck</button>
+	</center>
+	<br>
+	<center>
+  		<h1>PoseNet WebCam</h1>
+	</center>
+	<center>
+  	<p id='status' style="font-size: 20px;">Model is Loading...</p>
+    </center>
+    <br>
+</body>
+</html>
